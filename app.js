@@ -1,7 +1,11 @@
 import carros2024 from './tabelaCarros.js';
 
+import { modeloCarro } from './validacao.js';
+
 //Importar o modulo do express
 import express from 'express';
+
+
 
 const app = express();
 
@@ -20,6 +24,18 @@ app.get('/:sigla', (req, res) => {
     }
     res.status(200).send(carro); // se encontrad retorna o carro e status 200
 })
+
+app.post('/', (req,res) => {
+    const novoCarro = req.body;
+    const { error } = modeloCarro.validate(novoCarro);
+    if (error) {
+        res.status(400).send(error);
+        return;
+    }
+    carros2024.push(novoCarro);
+    res.status(200).send(novoCarro);
+});
+
 
 //define a orta do servidor
 app.listen(3000, () =>{
