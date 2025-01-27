@@ -63,4 +63,6 @@ app.listen(3000, () =>{
 
 // npm init -y 
 // npm install express
+
 // node app.js
+// npx nodemon app.js
