@@ -1,7 +1,6 @@
 {
   "name": "js",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -13,5 +12,6 @@
   "dependencies": {
     "express": "^4.21.2",
     "joi": "^17.13.3"
-  }
+  },
+  "description": ""
 }

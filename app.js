@@ -1,6 +1,7 @@
 import carros2024 from './tabelaCarros.js';
 
-import { modeloCarro } from './validacao.js';
+import { modeloCarro, modeloAtualizacaoCarro } from './validacao.js';
+
 
 //Importar o modulo do express
 import express from 'express';
@@ -36,6 +37,24 @@ app.post('/', (req,res) => {
     res.status(200).send(novoCarro);
 });
 
+app.put('/:sigla', (req,res) => {
+    const siglaInformada = req.params.sigla.toUpperCase();
+    const carroSelecionado = carros2024.find((c) => c.sigla === siglaInformada);
+    if (!carroSelecionado) {
+        res.status(404).send("Não existe um carro com a sigla informada");
+        return;
+    };
+    const { error } = modeloAtualizacaoCarro.validate(req.body);
+    if (error) {
+        res.status(400).send(error);
+        return;
+    };
+    const campos = Object.keys(req.body);
+    for (let campo of campos) {
+        carroSelecionado[campo] = req.body[campo];
+    };
+    res.status(200).send(carroSelecionado);
+});
 
 //define a orta do servidor
 app.listen(3000, () =>{
@@ -44,4 +63,4 @@ app.listen(3000, () =>{
 
 // npm init -y
 // npm install express
-// node app.js ou ./app.js
+// node app.js.
