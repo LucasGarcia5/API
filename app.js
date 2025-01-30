@@ -56,6 +56,17 @@ app.put('/:sigla', (req,res) => {
     res.status(200).send(carroSelecionado);
 });
 
+app.delete('/:sigla', (req, res) => {
+    const siglaInformada = req.params.sigla.toUpperCase();
+    const index = carros2024.findIndex((carro) => carro.sigla === siglaInformada);
+    if (index !== -1) {
+        carros2024.splice(index, 1);
+        res.status(200).send({ message: `Carro com sigla ${siglaInformada} excluído com sucesso.` });
+    } else {
+        res.status(404).send({ message: `Carro com sigla ${siglaInformada} não encontrado.` });
+    }
+});
+
 //define a orta do servidor
 app.listen(3000, () =>{
     console.log("servidor rodando com sucesso na porta 3000")
