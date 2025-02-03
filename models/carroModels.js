@@ -30,7 +30,7 @@ export const createCarro = (novoCarro) => {
 };
 
 //função que atualiza as informações dde uma carro existente, com base na sigla
-export const updadteCarro = (sigla, dadosAtualizados) => {
+export const updateCarro = (sigla, dadosAtualizados) => {
     //buscar o indice do carro no array
     const carroIndex = carros2024.findIndex(carro => carro.sigla === sigla);
     if (carroIndex === -1) return null; // Se não encontrar carro retorna null
