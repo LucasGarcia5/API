@@ -10,8 +10,10 @@
   "author": "lucas",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.21.2",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.9"
   },
   "description": "Esta é uma API em construção, que será uma API RESTful desenvolvida para o gerenciaeto de ingormações de carros, utilizando **Node.js** e **Express**. A API permie criar, ler, atualizar e excluir carros, com validação dos dados utilizando a biblioteca **Joi**."
