@@ -2,7 +2,7 @@ import express from "express";
 
 import carroRoutes from "./routes/carroRoutes.js";
 
-import usuarioRotes from "./routes/usuarioRoutes.js"
+import usuarioRotes from "./routes/usuarioRoutes.js";
 
 const app = express();
 
@@ -22,6 +22,6 @@ app.listen(3000, () => {
 // npm init -y
 // npm install express
 // npm install jsonwebtoken
-// npm install bcrypt 
+// npm install bcrypt
 // node app.js
 // npx nodemon app.js
